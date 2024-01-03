@@ -50,9 +50,10 @@ public class BootStrapData implements CommandLineRunner {
         oreilly.setAddress(new Address("via di qua", "Torino", "Italia", "10100"));
         oreilly.getBooks().add(ddd);
         oreilly.getBooks().add(noEJB);
-        ddd.getPublishers().add(oreilly);
-        noEJB.getPublishers().add(oreilly);
+        ddd.setPublisher(oreilly);
+        noEJB.setPublisher(oreilly);
 
         System.out.println("number of publishers: " + publisherRepository.count());
+        System.out.println("publisher " + oreilly.getName() + " : num of books: " + oreilly.getBooks().size());
     }
 }
